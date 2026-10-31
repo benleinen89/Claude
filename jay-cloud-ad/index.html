@@ -1,0 +1,176 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>jay cloud ad</title>
+<style>
+:root{--navy:#1B4E9B;--blue:#2F6FDF;--light:#D9E8FF;--off:#F2F5F9;--grey:#6B7280;--ink:#0B1220;--dark:#0D1424;--red:#E5383B;--green:#16A34A;--amber:#F59E0B}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1080px;overflow:hidden;background:#000;font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased}
+#stage{position:relative;width:1080px;height:1080px;overflow:hidden;background:var(--dark)}
+.scene{position:absolute;inset:0;opacity:0}
+.abs{position:absolute}
+.c{left:0;right:0;text-align:center}
+.mono{font-family:'JetBrains Mono',monospace}
+.h1{font-weight:800;letter-spacing:-0.03em;line-height:1.02}
+.cap{font-weight:700;letter-spacing:-0.02em;line-height:1.15}
+/* logo bug */
+#bug{position:absolute;left:40px;top:36px;display:flex;align-items:center;gap:12px;z-index:50;opacity:0}
+#bug img{width:44px;height:auto}
+#bug span{font-weight:700;font-size:28px;letter-spacing:-0.02em;color:#fff}
+/* S1 alarm */
+#strobe{position:absolute;inset:0;background:radial-gradient(circle at 50% 45%,#ff3b3b 0%,#b5121b 55%,#3a0508 100%);opacity:0}
+#s1time{top:330px;font-size:150px;color:#fff;font-weight:700}
+#s1label{top:520px;font-size:96px;color:#fff}
+#s1icon{left:490px;top:200px;width:100px;height:100px}
+/* S2 building */
+#s2q{top:120px;font-size:112px;color:#fff}
+#bldg{left:190px;top:420px;width:700px;height:560px}
+.win{position:absolute;width:70px;height:56px;border-radius:6px;background:#1E2A44}
+.qm{position:absolute;font-weight:800;font-size:64px;color:var(--amber);opacity:0}
+/* S3 roster */
+#paper{left:250px;top:300px;width:580px;height:600px;background:#FBFAF6;border-radius:18px;box-shadow:0 30px 80px rgba(0,0,0,.5);padding:44px 48px;transform-origin:50% 50%}
+#paper .ph{font-weight:800;font-size:30px;color:#111;letter-spacing:-0.01em}
+#paper .ps{font-size:22px;color:#6B7280;margin-top:6px}
+#paper .row{position:relative;font-size:28px;color:#222;padding:13px 0;border-bottom:2px solid #ECEAE3;display:flex;justify-content:space-between}
+#paper .strike{position:absolute;left:-6px;top:50%;height:5px;background:var(--red);border-radius:3px;width:0}
+#paper .mark{font-weight:800;color:var(--red);opacity:0}
+#clip{position:absolute;left:220px;top:-26px;width:140px;height:52px;background:#9AA3B2;border-radius:10px}
+#s3a{top:92px;font-size:58px;color:#fff}
+#s3b{top:950px;font-size:52px;color:var(--amber)}
+/* S4 blind spots */
+#s4h{top:110px;font-size:64px;color:#fff}
+.card{position:absolute;left:140px;width:800px;height:190px;border-radius:24px;background:#141E33;border:2px solid #24314F;display:flex;align-items:center;gap:36px;padding:0 44px;opacity:0}
+.card .ic{width:110px;height:110px;border-radius:22px;display:flex;align-items:center;justify-content:center;flex:none}
+.card .t{font-weight:800;font-size:50px;color:#fff;letter-spacing:-0.02em}
+.card .s{font-size:28px;color:#9AA6BD;margin-top:8px}
+/* S5 reveal */
+#wipe{position:absolute;left:540px;top:540px;width:10px;height:10px;border-radius:50%;background:var(--blue);transform:translate(-50%,-50%) scale(0)}
+#s5logo{position:absolute;left:0;right:0;top:330px;display:flex;align-items:center;justify-content:center;gap:34px}
+#s5logo img{width:210px}
+#s5logo span{font-weight:800;font-size:150px;color:#fff;letter-spacing:-0.04em}
+#s5tag{top:640px;font-size:52px;color:var(--light);font-weight:600}
+/* S6 flow */
+#s6{background:var(--off)}
+#s6title{top:110px;font-size:42px;color:var(--navy);font-weight:800;letter-spacing:-0.02em}
+.panel{position:absolute;background:#fff;border-radius:26px;box-shadow:0 12px 40px rgba(27,78,155,.12);border:2px solid #E3EAF5}
+#hr{left:50px;top:270px;width:420px;height:440px;padding:30px}
+#hr .lbl{font-size:22px;font-weight:700;color:var(--grey);letter-spacing:.08em;text-transform:uppercase}
+#hr .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+#hr .chip{font-size:20px;font-weight:600;color:var(--navy);background:var(--light);padding:7px 12px;border-radius:999px}
+.ev{position:absolute;left:30px;right:30px;height:120px;border-radius:18px;background:var(--off);padding:20px 22px;opacity:0;border-left:8px solid var(--blue)}
+.ev .k{font-size:22px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.ev .n{font-size:28px;white-space:nowrap;font-weight:800;color:var(--ink);margin-top:6px;letter-spacing:-0.02em}
+#hub{left:476px;top:426px;width:128px;height:128px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 0 rgba(47,111,223,.35)}
+#hub img{width:74px}
+#wire{left:460px;top:488px;width:160px;height:4px;background:#C9D6EC}
+#pulse{left:460px;top:478px;width:24px;height:24px;border-radius:50%;background:var(--blue);opacity:0}
+#dev{left:610px;top:270px;width:420px;height:440px;display:flex;flex-direction:column;align-items:center;padding-top:40px}
+#reader{width:150px;height:230px;border-radius:28px;background:#1F2937;position:relative;display:flex;align-items:center;justify-content:center}
+#led{position:absolute;top:26px;left:50%;width:46px;height:12px;margin-left:-23px;border-radius:6px;background:#4B5563}
+#rdIcon{width:110px;height:110px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#374151;color:#fff;font-weight:800;font-size:70px}
+#rdText{margin-top:30px;font-size:34px;font-weight:800;letter-spacing:-0.02em;color:var(--grey)}
+#rdSub{margin-top:6px;font-size:22px;color:var(--grey)}
+#vlist{position:absolute;left:30px;right:30px;top:40px;bottom:30px;opacity:0}
+#vlist .big{font-size:110px;font-weight:800;color:var(--navy);letter-spacing:-0.04em;text-align:center;line-height:1}
+#vlist .lb{text-align:center;font-size:26px;color:var(--grey);font-weight:600;margin-top:8px}
+#vlist .vrow{margin-top:30px;background:var(--light);border-radius:16px;padding:16px 18px;font-size:22px;white-space:nowrap;font-weight:700;color:var(--navy)}
+#s6cap{top:800px;font-size:54px;color:var(--ink)}
+#s6cap b{color:var(--blue)}
+/* S7 tablet */
+#s7{background:var(--navy)}
+#tab{left:90px;top:170px;width:900px;height:580px;border-radius:40px;background:#0B1220;padding:22px}
+#scr{width:100%;height:100%;border-radius:22px;background:var(--off);padding:34px 40px;overflow:hidden}
+#scr .top{display:flex;justify-content:space-between;align-items:center}
+#scr .tt{font-size:34px;font-weight:800;color:var(--ink);letter-spacing:-0.02em}
+#scr .live{font-size:22px;font-weight:800;color:#fff;background:var(--red);padding:6px 14px;border-radius:999px}
+#stats{display:flex;gap:20px;margin-top:28px}
+.st{flex:1;background:#fff;border-radius:18px;padding:22px 24px;border:2px solid #E3EAF5}
+.st .v{font-size:76px;font-weight:800;letter-spacing:-0.04em;line-height:1}
+.st .l{font-size:22px;color:var(--grey);font-weight:600;margin-top:8px}
+.mrow{display:flex;justify-content:space-between;align-items:center;background:#fff;border-radius:14px;padding:16px 22px;margin-top:12px;font-size:25px;border-left:8px solid var(--red);opacity:0}
+.mrow b{color:var(--ink)} .mrow span{color:var(--grey)}
+#s7cap{top:810px;font-size:58px;color:#fff}
+/* S8 end */
+#s8{background:var(--off)}
+#s8logo{position:absolute;left:0;right:0;top:150px;display:flex;align-items:center;justify-content:center;gap:24px}
+#s8logo img{width:130px}
+#s8logo span{font-weight:800;font-size:104px;color:var(--navy);letter-spacing:-0.04em}
+#s8line{top:350px;font-size:46px;color:var(--ink);padding:0 40px}
+#s8line b{color:var(--blue)}
+#s8mods{top:560px;font-size:30px;color:var(--navy);font-weight:700;letter-spacing:.02em}
+#s8hr{top:616px;font-size:26px;color:var(--grey);font-weight:600}
+#cta{left:330px;top:720px;width:420px;height:104px;border-radius:999px;background:var(--blue);color:#fff;font-weight:800;font-size:44px;display:flex;align-items:center;justify-content:center;letter-spacing:-0.01em;box-shadow:0 14px 40px rgba(47,111,223,.35)}
+#s8by{top:900px;font-size:26px;color:var(--grey);font-weight:600}
+</style></head>
+<body><div id="stage">
+<div id="bug"><img src="assets/bird_white.png"><span>jay cloud</span></div>
+<section class="scene" id="s1">
+  <div id="strobe"></div>
+  <svg id="s1icon" class="abs" viewBox="0 0 100 100"><path d="M50 8 L94 88 H6 Z" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/><rect x="45" y="36" width="10" height="28" rx="4" fill="#fff"/><circle cx="50" cy="74" r="6" fill="#fff"/></svg>
+  <div id="s1time" class="abs c mono">2:14 PM</div>
+  <div id="s1label" class="abs c h1">FIRE ALARM.</div>
+</section>
+<section class="scene" id="s2">
+  <div id="s2q" class="abs c h1">Who's still<br>inside?</div>
+  <div id="bldg" class="abs"></div>
+</section>
+<section class="scene" id="s3">
+  <div id="s3a" class="abs c cap">Your HR system knows<br>who works here.</div>
+  <div id="paper" class="abs"><div id="clip"></div>
+    <div class="ph">EVACUATION ROSTER</div><div class="ps">HR export · printed 6:00 AM</div>
+    <div style="margin-top:18px" id="rows"></div>
+  </div>
+  <div id="s3b" class="abs c cap">It doesn't know who's in the building.</div>
+</section>
+<section class="scene" id="s4">
+  <div id="s4h" class="abs c h1">Every blind spot is a risk.</div>
+  <div class="card" id="c1" style="top:300px"><div class="ic" style="background:#F59E0B"><svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><path d="M3 18h18v2H3zM5 18a7 7 0 0 1 14 0M12 4v7M9 5.5v5M15 5.5v5"/></svg></div><div><div class="t">Contractors</div><div class="s">Not in your HR system</div></div></div>
+  <div class="card" id="c2" style="top:520px"><div class="ic" style="background:#8B5CF6"><svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M8 17c1-2 7-2 8 0"/></svg></div><div><div class="t">Visitors</div><div class="s">Signed a paper log at reception</div></div></div>
+  <div class="card" id="c3" style="top:740px"><div class="ic" id="c3ic" style="background:#16A34A"><svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg></div><div><div class="t">Last Friday's leaver</div><div class="s" id="c3s">Badge still says: ACCESS GRANTED</div></div></div>
+</section>
+<section class="scene" id="s5">
+  <div id="wipe"></div>
+  <div id="s5logo"><img src="assets/bird_white.png"><span>jay cloud</span></div>
+  <div id="s5tag" class="abs c">One cloud. Everything connected.</div>
+</section>
+<section class="scene" id="s6">
+  <div id="s6title" class="abs c">Your HR system → every door, clock &amp; visitor desk</div>
+  <div class="panel" id="hr"><div class="lbl">Your HR system</div>
+    <div class="chips"><span class="chip">SAP SuccessFactors</span><span class="chip">Workday</span><span class="chip">HiBob</span></div>
+    <div class="ev" id="e1" style="top:190px;border-color:#16A34A"><div class="k" style="color:#16A34A">New hire</div><div class="n">Maria Chen · Line 2</div></div>
+    <div class="ev" id="e2" style="top:190px;border-color:#E5383B"><div class="k" style="color:#E5383B">Terminated</div><div class="n">J. Ross · Warehouse</div></div>
+    <div class="ev" id="e3" style="top:190px;border-color:#8B5CF6"><div class="k" style="color:#8B5CF6">Visitor check-in</div><div class="n">A. Patel · Host: Ops</div></div>
+  </div>
+  <div id="wire" class="abs"></div>
+  <div id="pulse" class="abs"></div>
+  <div id="hub" class="abs"><img src="assets/bird_white.png"></div>
+  <div class="panel" id="dev">
+    <div id="reader"><div id="led"></div><div id="rdIcon">·</div></div>
+    <div id="rdText">Badge reader</div><div id="rdSub">Main gate</div>
+    <div id="vlist"><div class="lb">ON SITE NOW</div><div class="big" id="onsite">411</div><div class="lb">employees, contractors &amp; visitors</div><div class="vrow">+ A. Patel · Visitor · Bldg 1</div></div>
+  </div>
+  <div id="s6cap" class="abs c cap"></div>
+</section>
+<section class="scene" id="s7">
+  <div id="tab" class="abs"><div id="scr">
+    <div class="top"><div class="tt">Evacuation · Plant 1 · 2:16 PM</div><div class="live">● LIVE</div></div>
+    <div id="stats">
+      <div class="st"><div class="v" style="color:var(--navy)">412</div><div class="l">On site</div></div>
+      <div class="st"><div class="v" style="color:var(--green)" id="safe">0</div><div class="l">Accounted for</div></div>
+      <div class="st"><div class="v" style="color:var(--red)" id="miss">412</div><div class="l">Still missing</div></div>
+    </div>
+    <div class="mrow" id="m1"><b>D. Okafor · Contractor</b><span>Last badge: Bldg 2 · 2:11 PM</span></div>
+    <div class="mrow" id="m2"><b>L. Novak · Employee</b><span>Last badge: Bldg 2 · 2:09 PM</span></div>
+    <div class="mrow" id="m3"><b>S. Rivera · Visitor</b><span>Checked in: Lab B · 1:40 PM</span></div>
+  </div></div>
+  <div id="s7cap" class="abs c cap">Know who's on site. In real time.</div>
+</section>
+<section class="scene" id="s8">
+  <div id="s8logo"><img src="assets/bird_blue.png"><span>jay cloud</span></div>
+  <div id="s8line" class="abs c cap">Your HR system knows who works here.<br><b>jay cloud knows who's inside.</b></div>
+  <div id="s8mods" class="abs c">TIME · ACCESS · VISITORS · LIFE SAFETY</div>
+  <div id="s8hr" class="abs c">Works with SAP SuccessFactors · Workday · HiBob</div>
+  <div id="cta" class="abs">Book a demo →</div>
+  <div id="s8by" class="abs c">jay cloud by Poksundo</div>
+</section>
+</div>
+<script src="anim.js"></script>
+</body></html>
