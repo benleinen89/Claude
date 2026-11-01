@@ -7,7 +7,7 @@ frame by frame.
 ## v2 (current cut): Jay via Higgsfield
 
 Feedback on v1 was that the code-built Jay looked poor and a bit scary, and that Jay is not a giant.
-In v2 every shot of Jay acting is a Higgsfield clip: a GPT Image 2.5 keyframe made from the mascot
+In v2 every shot of Jay acting, and the drop-and-ripple beat, is a Higgsfield clip: a GPT Image 2.5 keyframe made from the mascot
 reference, animated with Kling 3.0 pro. Jay is child-height among people. The shots without Jay are still
 rendered by this engine with `--nojay 1`. That covers the lock waking, the drop falling into the plaza pool
 and the wave of light, the alarm, and the lights rising into the bird mark (the ending is unchanged, and Jay's climb and
@@ -28,7 +28,7 @@ python3 edit_v2.py           # conform + mux -> out/jay-cloud_the-wingman_v2_60s
 | 0:16 | Over the golden cloud sea to the 1908 door | Higgsfield |
 | 0:21 | The drop wakes the lock: gears, bolts | render |
 | 0:22 | The door opens; Jay flies into the light | Higgsfield |
-| 0:26 | The drop falls into the plaza pool; the wave wakes every door, reader and turnstile | render |
+| 0:26 | The drop falls into the grey, frozen plaza pool on the music hit; a ring of light races out, colour floods back, light lines reach every door and reader, and people start walking | Higgsfield |
 | 0:34 | Alarm; everyone streams to the muster point | render |
 | 0:36 | Muster point: Jay reassures everyone; on the climax, all safe | Higgsfield |
 | 0:40 | Jay's hello | Higgsfield |

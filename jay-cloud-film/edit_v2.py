@@ -18,7 +18,7 @@ EDIT = [
     ('hf/clips/c3.mp4',    0, 113, AI),          # 16.333  over the cloud sea to the door
     ('out/v2/gears.mp4',   0,  41, RN),          # 21.042  the drop wakes the 1908 lock
     ('hf/clips/c4.mp4',   30,  91, AI),          # 22.750  the door opens; into the light
-    ('out/v2/ripple.mp4',  0, 196, RN + ',fade=t=in:st=0:d=0.25:color=white'),  # 26.542  drop -> pool -> wave
+    ('hf/clips/c7.mp4',    0, 196, AI + ',fade=t=in:st=0:d=0.25:color=white'),  # 26.542  drop -> pool (splash f49 = 28.58) -> wave of light
     ('out/v2/alarm.mp4',   0,  48, RN),          # 34.708  alarm; everyone streams to the muster point
     ('hf/clips/c5.mp4',    5,  98, AI),          # 36.708  muster point: all safe (38.75)
     ('hf/clips/c6.mp4',    0, 169, AI),          # 40.792  Jay's hello

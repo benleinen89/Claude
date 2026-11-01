@@ -71,22 +71,22 @@ cue('1796', 26.3, 0.0, 1.1, -8)
 # ---------------- the drop falls; one change, every system knows (26.54 - 34.71, render) ----------------
 cue('0908', 26.5, 50.0, 2.2, -24, fi=0.3, fo=0.5, hp=120)
 cue('1798', 26.6, 0.0, 0.5, -15)
-cue('2086', 27.25, 0.0, 2.6, -15)                                       # the drop falls
+cue('2086', 26.95, 0.0, 2.6, -14)                                       # the drop falls
 cue('1521', 28.565, 0.0, 4.0, -6, fo=1.0)                                # IMPACT (music hit 28.56)
 cue('1023', 28.575, 0.0, 2.5, -10, lp=380, fo=1.2)                       # deep low thump
 cue('1110', 28.56, 0.0, 6.0, -10, fo=3.0)                               # resonant ring
 cue('2687', 28.6, 60.0, 4.6, -15, fi=0.2, fo=2.2)                       # shimmer of the wave
 cue('3576', 29.2, 30.0, 5.6, -27, fi=1.5, fo=0.6)                       # campus comes alive
-cue('1417', 29.34, 0.0, 0.26, -16)                                      # readers beep
-cue('2066', 29.71, 0.0, 0.43, -15)                                      # terminal boots
-cue('1417', 29.9, 0.0, 0.26, -14)
-cue('3442', 30.02, 0.0, 0.68, -15)                                      # door strike buzz
-cue('1803', 30.2, 17.6, 1.4, -17, fi=0.05, fo=0.4)                      # HQ doors slide open
-cue('1318', 30.1, 10.0, 4.7, -24, fi=1.0, fo=0.5)                       # people step out
-cue('1417', 30.5, 0.0, 0.26, -16, rate=1.12)
-cue('0027', 31.5, 2.1, 0.6, -15)                                        # turnstile click
-cue('2066', 31.9, 0.0, 0.43, -18, rate=1.19)                            # muster point online
-cue('0027', 32.4, 3.6, 0.6, -16)                                        # barrier
+cue('1417', 30.9, 0.0, 0.26, -16)                                       # readers turn green as the light lines arrive
+cue('2066', 31.25, 0.0, 0.43, -16)                                      # terminals wake
+cue('1417', 31.45, 0.0, 0.26, -15)
+cue('3442', 31.6, 0.0, 0.68, -16)                                       # door strike
+cue('1803', 31.8, 17.6, 1.4, -17, fi=0.05, fo=0.4)                      # glass doors slide open
+cue('1318', 31.6, 10.0, 3.1, -23, fi=1.0, fo=0.5)                       # people start walking
+cue('1417', 32.1, 0.0, 0.26, -16, rate=1.12)
+cue('0027', 32.6, 2.1, 0.6, -16)                                        # gate
+cue('2066', 33.0, 0.0, 0.43, -18, rate=1.19)                            # muster point online
+cue('0027', 33.4, 3.6, 0.6, -17)
 
 # ---------------- alarm (34.71 - 36.71, render) -> muster point (36.71 - 40.79) ----------------
 for k in range(0, 5):                                                   # fire alarm bell (looped), dies away on the cut
