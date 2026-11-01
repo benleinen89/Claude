@@ -104,7 +104,7 @@ cue('1796', 51.4, 0.0, 1.1, -14)                                        # they s
 cue('1800', 52.4, 0.0, 0.9, -17)
 
 # ---------------- the bird mark (54.67 - 60.13, render) ----------------
-cue('2079', 54.55, 0.0, 2.3, -11)                                       # the lights become the bird mark
+cue('2079', 54.75, 0.0, 2.3, -11)                                       # the lights become the bird mark
 cue('2086', 55.5, 0.0, 2.6, -14)
 cue('1110', 55.7, 0.0, 4.4, -13, fo=2.5)
 cue('1867', 56.9, 0.0, 2.0, -22, rate=1.335)                            # it settles and twinkles
