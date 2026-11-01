@@ -1,0 +1,12 @@
+node_modules/
+out/
+audio/mix.wav
+*.log
+__pycache__/
+# third-party audio is re-downloadable (see CREDITS.md for sources and IDs); mixes are build outputs
+audio/sfx/
+audio/src/
+audio/*.wav
+# review scratch and the accidental test generation
+hf/qa/
+hf/clips/accidental_seedance.mp4

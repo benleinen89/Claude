@@ -1,0 +1,16 @@
+{
+  "name": "jay-cloud-film",
+  "version": "1.0.0",
+  "description": "jay cloud \"The Wingman\" - 60s procedural 3D mascot film rendered with three.js",
+  "scripts": {
+    "render": "./render_final.sh",
+    "still": "node render.mjs still",
+    "mix": "python3 audio/mix.py"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "three": "0.170.0"
+  },
+  "private": true
+}
