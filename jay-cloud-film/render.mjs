@@ -34,6 +34,7 @@ if (opt.cam) q.set('cam', opt.cam);
 if (opt.dbgcam) q.set('dbgcam', opt.dbgcam);
 if (opt.hide) q.set('hide', opt.hide);
 if (opt.nojay) q.set('nojay', '1');
+if (opt.gjay) q.set('gjay', '1');
 await page.goto(`http://localhost:${port}/index.html?${q}`);
 const t0 = Date.now();
 const info = await page.evaluate(() => window.__ready);

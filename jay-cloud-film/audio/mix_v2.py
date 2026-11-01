@@ -123,6 +123,11 @@ cue('2079', 54.2, 0.0, 2.3, -11)                                        # the bi
 cue('2086', 55.5, 0.0, 2.6, -14)
 cue('1110', 55.7, 0.0, 4.4, -13, fo=2.5)
 cue('1867', 56.9, 0.0, 2.0, -22, rate=1.335)                            # it settles and twinkles
+cue('2891', 53.5, 0.0, 2.7, -16)                                        # Jay (rigged 3D) climbs through the lights
+cue('2892', 57.2, 0.0, 2.2, -20)                                        # ...and makes one pass in front of the bird mark
+cue('1798', 57.75, 0.0, 0.5, -19)
+cue('3454', 58.05, 0.0, 0.68, -23)                                      # a small happy call as he goes by
+cue('2891', 58.4, 0.0, 2.0, -24, fo=0.8)
 
 if __name__ == '__main__':
     mix.build()
