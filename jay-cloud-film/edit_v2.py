@@ -22,7 +22,8 @@ EDIT = [
     ('out/v2/alarm.mp4',   0,  48, RN),          # 34.708  alarm; everyone streams to the muster point
     ('hf/clips/c5.mp4',    5,  98, AI),          # 36.708  muster point: all safe (38.75)
     ('hf/clips/c6.mp4',    0, 169, AI),          # 40.792  Jay's hello
-    ('out/v2/finale.mp4',  0, 295, RN),          # 47.833  lights lift off -> the bird mark
+    ('out/v2/finale.mp4',  0, 215, RN),          # 47.833  lights lift off (Jay climbs with them) -> the bird mark
+    ('out/v2/finale_tail.mp4', 0, 80, RN),       # 56.792  the bird mark on its own (finale local 16.0 -> end, no fly-past)
 ]
 
 def main():

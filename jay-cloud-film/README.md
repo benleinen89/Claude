@@ -10,8 +10,8 @@ Feedback on v1 was that the code-built Jay looked poor and a bit scary, and that
 In v2 every shot of Jay acting, and the drop-and-ripple beat, is a Higgsfield clip: a GPT Image 2.5 keyframe made from the mascot
 reference, animated with Kling 3.0 pro. Jay is child-height among people. The shots without Jay are still
 rendered by this engine with `--nojay 1`. That covers the lock waking, the drop falling into the plaza pool
-and the wave of light, the alarm, and the lights rising into the bird mark (the ending is unchanged, and Jay's climb and
-fly-past now use a rigged 3D Jay from Higgsfield, loaded as glTF and animated by code). The music edit and hit points are the same as v1, and the sound effects are re-spotted
+and the wave of light, the alarm, and the lights rising into the bird mark (the ending is unchanged, and Jay's climb through
+the lights now uses a rigged 3D Jay from Higgsfield, loaded as glTF and animated by code). The music edit and hit points are the same as v1, and the sound effects are re-spotted
 in `audio/mix_v2.py`.
 
 ```bash
@@ -32,7 +32,7 @@ python3 edit_v2.py           # conform + mux -> out/jay-cloud_the-wingman_v2_60s
 | 0:34 | Alarm; everyone streams to the muster point | render |
 | 0:36 | Muster point: Jay reassures everyone; on the climax, all safe | Higgsfield |
 | 0:40 | Jay's hello | Higgsfield |
-| 0:47 | The campus lights lift off and become the jay cloud bird mark; Jay climbs with them and flies past it | render + rigged 3D Jay (Higgsfield Image to 3D, animated in `src/gjay.js`) |
+| 0:47 | The campus lights lift off and become the jay cloud bird mark; Jay climbs with them | render + rigged 3D Jay (Higgsfield Image to 3D, animated in `src/gjay.js`) |
 
 ## Story (told only with pictures)
 

@@ -119,22 +119,15 @@ const shot = {
     jay.root.visible = t < tUp + 2.6 || t > 16.3;
     if (this.g) {
       const g = this.g; this.scene.add(g.root);
-      // he appears once he is above the roofs (never a giant among the people), climbs through the lights,
-      // then makes one close pass in front of the finished bird mark
-      const up = t >= tUp + 0.85 && t < tUp + 2.6, past = t > 16.3 && t < 19.0;
-      g.root.visible = up || past; this.gLight.intensity = 0;
+      // he appears once he is above the roofs (never a giant among the people) and climbs with the lights;
+      // the bird mark then forms on its own
+      const up = t >= tUp + 0.85 && t < tUp + 2.6;
+      g.root.visible = up; this.gLight.intensity = 0;
       if (up) {
         const k = clamp((t - tUp) / 2.4);
         g.pose(gFly(t, { freq: 2.6, amp: 0.6 })); g.body.rotation.x = lerp(0.5, 0.9, k);
         g.root.position.copy(jp); g.root.rotation.set(0, -0.3 + 0.2 * k, 0); g.root.scale.setScalar(lerp(1.7, 2.6, ss(k, 0.35, 0.8)));
         this.gLight.position.copy(jp).add(new THREE.Vector3(0.5, 2.5, 4)); this.gLight.intensity = 260 * ss(t, tUp + 0.85, tUp + 1.1);
-      } else if (past) {
-        const k = clamp((t - 16.3) / 2.6);
-        const pp = new THREE.Vector3(lerp(16, -16, k), 27.2 + Math.sin(k * Math.PI) * 1.6, 2);
-        g.pose(gFly(t, { freq: 1.8, amp: 0.5, glide: ss(t, 17.0, 17.4) * (1 - ss(t, 18.2, 18.5)) }));
-        g.body.rotation.z = -0.12 * Math.sin(k * Math.PI);
-        g.root.position.copy(pp); g.root.rotation.set(0, -Math.PI / 2, 0); g.root.scale.setScalar(5.0);
-        this.gLight.position.copy(pp).add(new THREE.Vector3(0, 3, 6)); this.gLight.intensity = 420 * (1 - ss(t, 18.4, 19.0));
       }
       g.root.updateMatrixWorld(true);
     }

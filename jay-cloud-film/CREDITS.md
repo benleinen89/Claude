@@ -25,7 +25,7 @@ point, the hello) are AI-generated on Higgsfield. Each one starts from a keyfram
 from the jay cloud mascot reference image, and is then animated with Kling 3.0 (pro, no audio).
 The drop-and-ripple beat at 0:26 is also a Higgsfield clip (`hf/keys/k7.png` → `hf/clips/c7.mp4`).
 Sources: `hf/keys/k1–k7.png` (keyframes) and `hf/clips/c1–c7.mp4` (clips).
-In the rendered ending, Jay climbs through the lights and flies past the bird mark as a rigged 3D model,
+In the rendered ending, Jay climbs through the lights as a rigged 3D model,
 `assets/jay_rig.glb`. It was made with Higgsfield Image to 3D (Meshy, textured PBR, auto-rigged) from a
 GPT Image 2.5 front A-pose image (`hf/user3d/jay_apose.png`), and is posed and animated by code in `src/gjay.js`. Use is subject to the
 Higgsfield account's plan terms.

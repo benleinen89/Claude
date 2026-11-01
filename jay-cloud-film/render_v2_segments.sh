@@ -8,5 +8,5 @@ R() { echo "=== $1"; node render.mjs video --shot "$2" --from "$3" --to "$4" --n
 R gears  sky    6.458333  8.166667   # 41 frames: the drop wakes the 1908 lock
 R ripple ripple 0         8.166667   # 196 frames: drop falls, wave of light, campus wakes
 R alarm  alarm  1.708333  3.708333   # 48 frames: alarm, everyone streams to the muster point
-G=1 R finale finale 7.041667  19.333333  # 295 frames: lights lift off and become the bird mark; rigged Jay climbs and flies past
+G=1 R finale finale 7.041667  19.333333  # 295 frames: lights lift off and become the bird mark; rigged Jay climbs with them
 echo segments done
