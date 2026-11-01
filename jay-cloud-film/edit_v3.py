@@ -45,10 +45,12 @@ def main():
         fl.append(f'[{k}:v]trim=start_frame={a}:end_frame={a + n},setpts=PTS-STARTPTS,fps=24,{f},format=yuv420p,setsar=1[v{k}]')
     X = XFADE_AT
     fl.append(''.join(f'[v{k}]' for k in range(X)) + f'concat=n={X}:v=1:a=0[head]')
-    fl.append(''.join(f'[v{k}]' for k in range(X + 1, len(EDIT))) + f'concat=n={len(EDIT) - X - 1}:v=1:a=0[rest]')
+    fl.append(''.join(f'[v{k}]' for k in range(X + 1, len(EDIT))) + f'concat=n={len(EDIT) - X - 1}:v=1:a=0,settb=1/24,fps=24[rest]')
     off = (EDIT[X][2] - XFADE_FRAMES) / 24
-    fl.append(f'[v{X}][rest]xfade=transition=fade:duration={XFADE_FRAMES / 24}:offset={off}[tail]')
-    fl.append('[head][tail]concat=n=2:v=1:a=0[v]')
+    fl.append(f'[v{X}]settb=1/24,fps=24[vx]')
+    fl.append(f'[vx][rest]xfade=transition=fade:duration={XFADE_FRAMES / 24}:offset={off}[tail]')
+    fl.append('[head]settb=1/24,fps=24[head24]')
+    fl.append('[head24][tail]concat=n=2:v=1:a=0[v]')
     os.makedirs('out/v3', exist_ok=True)
     vid = 'out/v3/video.mp4'
     subprocess.run(args + ['-filter_complex', ';'.join(fl), '-map', '[v]', '-c:v', 'libx264', '-preset', 'slow', '-crf', '12', '-tune', 'film', '-pix_fmt', 'yuv420p', vid], check=True)
