@@ -4,35 +4,40 @@ A one-minute 3D animated film about Jay, the jay cloud mascot. No text, no templ
 model, shader, animation and camera move is generated from code in this folder and rendered
 frame by frame.
 
-## v2 (current cut): Jay via Higgsfield
+## v3 (current cut): one story, carried by a drop of light
 
-Feedback on v1 was that the code-built Jay looked poor and a bit scary, and that Jay is not a giant.
-In v2 every shot of Jay acting, and the drop-and-ripple beat, is a Higgsfield clip: a GPT Image 2.5 keyframe made from the mascot
-reference, animated with Kling 3.0 pro. Jay is child-height among people. The shots without Jay are still
-rendered by this engine with `--nojay 1`. That covers the lock waking, the drop falling into the plaza pool
-and the wave of light, the alarm, and the lights rising into the bird mark (the ending is unchanged, and Jay's climb through
-the lights now uses a rigged 3D Jay from Higgsfield, loaded as glTF and animated by code). The music edit and hit points are the same as v1, and the sound effects are re-spotted
-in `audio/mix_v2.py`.
+v3 tightens v2 into a single cause-and-effect story. The glowing drop the lake gives Jay is the thread:
+he carries it through the door in the clouds and lets it fall into a grey, frozen workplace. On the music
+hit it wakes everything up and connects every door, reader and person. That night the same connected
+campus gets everyone out safely. Then Jay takes off, the campus lights rise with him, and they become the
+jay cloud bird mark: the ending from v1/v2, unchanged.
+
+Every shot is now a Higgsfield clip (GPT Image 2.5 keyframe from the mascot reference, then Kling 3.0 pro)
+except the bird-mark finale, which is rendered by this engine. The music edit and its two hits
+(splash at 28.56 s, "all safe" at 38.75 s) are the same as v1/v2. Sound effects are spotted in `audio/mix_v3.py`.
 
 ```bash
-./render_v2_segments.sh      # Jay-less rendered segments -> out/v2/*.mp4
-python3 audio/mix_v2.py      # soundtrack -> audio/mix_v2.wav
-python3 edit_v2.py           # conform + mux -> out/jay-cloud_the-wingman_v2_60s_1080p(.mp4|_web.mp4)
+node render.mjs video --shot finale --from 13.875 --to 16.0 --nojay 1 --out out/v2/finale_mid.mp4 ...   # see edit_v3.py
+python3 audio/mix_v3.py      # soundtrack -> audio/mix_v3.wav
+python3 edit_v3.py           # conform + mux -> out/jay-cloud_the-wingman_v3_60s_1080p(.mp4|_web.mp4)
 ```
 
-| Time | Shot | Source |
+| Time | Beat | Source |
 |---|---|---|
-| 0:00 | Dawn on the lake; light gathers on the water | render |
-| 0:05 | Jay wakes on a stone and catches a rising drop of the lake | Higgsfield |
-| 0:10 | He flies off low over the water | Higgsfield |
-| 0:16 | Over the golden cloud sea to the 1908 door | Higgsfield |
-| 0:21 | The drop wakes the lock: gears, bolts | render |
-| 0:22 | The door opens; Jay flies into the light | Higgsfield |
-| 0:26 | The drop falls into the grey, frozen plaza pool on the music hit; a ring of light races out, colour floods back, light lines reach every door and reader, and people start walking | Higgsfield |
-| 0:34 | Alarm; everyone streams to the muster point | render |
-| 0:36 | Muster point: Jay reassures everyone; on the climax, all safe | Higgsfield |
-| 0:40 | Jay's hello | Higgsfield |
-| 0:47 | The campus lights lift off and become the jay cloud bird mark; Jay climbs with them | render + rigged 3D Jay (Higgsfield Image to 3D, animated in `src/gjay.js`) |
+| 0:00 | Dawn on the lake: Jay asleep on the shore, light gathering under the water | Higgsfield (cA) |
+| 0:05 | Jay wakes; the lake gives him a glowing drop | Higgsfield (c1) |
+| 0:10 | He takes off over the water | Higgsfield (c2) |
+| 0:16 | Across the cloud sea to the door | Higgsfield (c3) |
+| 0:20 | The door opens for him; he flies into the light | Higgsfield (c4) |
+| 0:23 | Out of the light, high above a grey, frozen campus; he lets the drop go | Higgsfield (cB) |
+| 0:27 | The drop hits the pool on the music hit; light races out, colour floods back, every door, reader and person wakes up and connects | Higgsfield (c7) |
+| 0:34 | That night: the alarm. Jay guides everyone out of the building | Higgsfield (cC) |
+| 0:37 | Muster point: everyone is accounted for; "all safe" on the climax | Higgsfield (c5) |
+| 0:40 | Jay's hello | Higgsfield (c6) |
+| 0:46 | He takes off and the campus lights rise with him into the night sky | Higgsfield (cD) |
+| 0:54 | The lights become the jay cloud bird mark | render |
+
+v2 (`edit_v2.py`, `audio/mix_v2.py`, `render_v2_segments.sh`) and the rigged 3D Jay (`src/gjay.js`) are kept for reference.
 
 ## Story (told only with pictures)
 

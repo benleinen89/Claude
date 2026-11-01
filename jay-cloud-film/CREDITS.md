@@ -23,9 +23,10 @@ studio_small_08 (look-dev only). The lake and cloud skies are procedural.
 In v2, Jay's six acting shots (waking on the lake, the flight, the cloud sea, through the door, the muster
 point, the hello) are AI-generated on Higgsfield. Each one starts from a keyframe made with GPT Image 2.5
 from the jay cloud mascot reference image, and is then animated with Kling 3.0 (pro, no audio).
-The drop-and-ripple beat at 0:26 is also a Higgsfield clip (`hf/keys/k7.png` → `hf/clips/c7.mp4`).
-Sources: `hf/keys/k1–k7.png` (keyframes) and `hf/clips/c1–c7.mp4` (clips).
-In the rendered ending, Jay climbs through the lights as a rigged 3D model,
+The drop-and-ripple beat is also a Higgsfield clip (`hf/keys/k7.png` → `hf/clips/c7.mp4`). v3 adds the lake
+opener, the delivery over the frozen campus, the night alarm and the take-off (`hf/keys/kA–kD.png` → `hf/clips/cA–cD.mp4`).
+Sources: `hf/keys/` (keyframes) and `hf/clips/` (clips).
+In the v2 rendered ending, Jay climbs through the lights as a rigged 3D model (not used in v3),
 `assets/jay_rig.glb`. It was made with Higgsfield Image to 3D (Meshy, textured PBR, auto-rigged) from a
 GPT Image 2.5 front A-pose image (`hf/user3d/jay_apose.png`), and is posed and animated by code in `src/gjay.js`. Use is subject to the
 Higgsfield account's plan terms.
