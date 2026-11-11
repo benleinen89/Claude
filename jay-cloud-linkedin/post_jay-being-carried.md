@@ -27,7 +27,7 @@ You just hold the pose.
 
 Tag the coworker who carries your whole team 👇
 
-#Startups #BuildInPublic #HRTech #B2BSaaS #WorkplaceSafety
+#HumanResources #HRTech #CorporateHumor #FutureOfWork #Startups
 ```
 
 ## Alternate hook
